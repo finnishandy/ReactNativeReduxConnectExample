@@ -40,12 +40,19 @@ class PageOne extends Component {
       })}>
         <View style={{margin: 128}}>
           <Text onPress={openControlPanel}>This is { this.props.flagger ? 'bar' : 'foo'}</Text>
+          <Text onPress={this.props.toggleBar}>Toggle bar</Text>
         </View>
       </Drawer>
     )
   }
 }
 
+function addTodo(text) {
+  return {
+  	type: 'bar',
+  	text: 'what'
+  };
+}
 
 function mapStateToProps({previousRoute}) {
   return { flagger: previousRoute.bar }
@@ -53,7 +60,9 @@ function mapStateToProps({previousRoute}) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    clearErrors: () => dispatch(() => { type: CLEAR }),
+    toggleBar: function (text) {
+      return dispatch(addTodo(text));
+    }
   };
 }
 
