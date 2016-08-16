@@ -47,7 +47,7 @@ class PageOne extends Component {
   }
 }
 
-function addTodo(text) {
+function toggle(text) {
   return {
   	type: 'bar',
   	text: 'what'
@@ -61,7 +61,7 @@ function mapStateToProps({previousRoute}) {
 function mapDispatchToProps(dispatch) {
   return {
     toggleBar: function (text) {
-      return dispatch(addTodo(text));
+      return dispatch(toggle(text));
     }
   };
 }
